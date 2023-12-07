@@ -1,0 +1,232 @@
+<script>
+  // Criação das matrizes A e B
+  var L = 3; //linhas
+  var C = 3; //colunas
+
+  var matrizA = new Array(L);
+  var matrizB = new Array(L);
+  var matriz_soma = new Array(L);
+
+  document.write("Matriz A" + "<br>");
+  for (i = 0; i < L; i++) {
+    matrizA[i] = new Array(C);
+    for (j = 0; j < C; j++) {
+      matrizA[i][j] = parseInt(prompt("Entre com os termos da matriz A 3x3."));
+      document.write(matrizA[i][j] + "&nbsp&nbsp&nbsp");
+    }
+    document.write("<br>");
+  }
+  document.write("<hr>");
+
+  document.write("Matriz B" + "<br>");
+  for (i = 0; i < L; i++) {
+    matrizB[i] = new Array(C);
+    for (j = 0; j < C; j++) {
+      matrizB[i][j] = parseInt(prompt("Entre com os termos da matriz B 3x3."));
+      document.write(matrizB[i][j] + "&nbsp&nbsp&nbsp");
+    }
+    document.write("<br>");
+  }
+  document.write("<hr>");
+
+  //Multiplicação das matrizes A por X e B por Y
+
+  document.write("Matriz A multiplicada por X" + "<br>");
+  var X = parseInt(prompt("Digite o valor de X"));
+
+  var matrizX = new Array(L);
+  for (let i = 0; i < L; i++) {
+    matrizX[i] = new Array(C);
+    for (let j = 0; j < C; j++) {
+      matrizX[i][j] = matrizA[i][j] * X;
+      document.write(matrizX[i][j] + "&nbsp&nbsp&nbsp");
+    }
+
+    document.write("<br>");
+  }
+  document.write("<hr>");
+  document.write("Matriz B multiplicada por Y" + "<br>");
+  var Y = parseInt(prompt("Digite o valor de Y"));
+  var matrizY = new Array(L);
+  for (let i = 0; i < L; i++) {
+    matrizY[i] = new Array(C);
+    for (let j = 0; j < C; j++) {
+      matrizY[i][j] = matrizB[i][j] * Y;
+      document.write(matrizY[i][j] + "&nbsp&nbsp&nbsp");
+    }
+
+    document.write("<br>");
+  }
+  document.write("<hr>");
+
+  //Soma das matrizes A e B
+
+  document.write("Soma das matrizes A e B" + "<br>");
+  var matrizAB = new Array(L);
+  for (let i = 0; i < L; i++) {
+    matrizAB[i] = new Array(C);
+    for (let j = 0; j < C; j++) {
+      matrizAB[i][j] = matrizA[i][j] + matrizB[i][j];
+      document.write(matrizAB[i][j] + "&nbsp&nbsp&nbsp");
+    }
+    document.write("<br>");
+  }
+  document.write("<hr>");
+
+  // Diagonais principais e secundárias das matrizes A e B
+
+  var diagonalPrincipalA = [];
+  var diagonalSecundariaA = [];
+  var diagonalPrincipalB = [];
+  var diagonalSecundariaB = [];
+
+  for (i = 0; i < L; i++) {
+    matrizA[i];
+    matrizB[i];
+
+    for (j = 0; j < C; j++) {
+      matrizA[i][j];
+      matrizB[i][j];
+
+      if (i === j) {
+        diagonalPrincipalA[diagonalPrincipalA.length] = matrizA[i][j];
+        diagonalPrincipalB[diagonalPrincipalB.length] = matrizB[i][j];
+      }
+      if (i + j === L - 1) {
+        diagonalSecundariaA[diagonalSecundariaA.length] = matrizA[i][j];
+        diagonalSecundariaB[diagonalSecundariaB.length] = matrizB[i][j];
+      }
+    }
+  }
+  document.write(
+    "Elementos da Diagonal Principal A: " + diagonalPrincipalA + "<br>"
+  );
+  document.write(
+    "Elementos da Diagonal Secundária A: " + diagonalSecundariaA + "<br>"
+  );
+  document.write(
+    "Elementos da Diagonal Principal B: " + diagonalPrincipalB + "<br>"
+  );
+  document.write(
+    "Elementos da Diagonal Secundária B: " + diagonalSecundariaB + "<br>"
+  );
+  document.write("<hr>");
+
+  // Informar qual o maior elemento e sua posição nas matrizes A e B
+
+  var maiorElementoA = matrizA[0][0];
+  var posicaoMaiorElementoA = { linha: 0, coluna: 0 };
+
+  for (i = 0; i < L; i++) {
+    matrizA[i];
+
+    for (j = 0; j < C; j++) {
+      matrizA[i][j];
+
+      if (matrizA[i][j] > maiorElementoA) {
+        maiorElementoA = matrizA[i][j];
+        posicaoMaiorElementoA.linha = i;
+        posicaoMaiorElementoA.coluna = j;
+      }
+    }
+  }
+
+  var maiorElementoB = matrizB[0][0];
+  var posicaoMaiorElementoB = { linha: 0, coluna: 0 };
+  for (i = 0; i < L; i++) {
+    matrizB[i];
+
+    for (j = 0; j < C; j++) {
+      matrizB[i][j];
+
+      if (matrizB[i][j] > maiorElementoB) {
+        maiorElementoB = matrizB[i][j];
+        posicaoMaiorElementoB.linha = i;
+        posicaoMaiorElementoB.coluna = j;
+      }
+    }
+  }
+  document.write("Maior Elemento na Matriz A: " + maiorElementoA + "<br>");
+  document.write(
+    "Posição do Maior Elemento da Matriz A: Linha " +
+      posicaoMaiorElementoA.linha +
+      ", Coluna " +
+      posicaoMaiorElementoA.coluna +
+      "<br>"
+  );
+  document.write("Maior Elemento na Matriz B: " + maiorElementoB + "<br>");
+  document.write(
+    "Posição do Maior Elemento da Matriz B: Linha " +
+      posicaoMaiorElementoB.linha +
+      ", Coluna " +
+      posicaoMaiorElementoB.coluna +
+      "<br>"
+  );
+  document.write("<hr>");
+
+  // Valores Acima da Diagonal principal das matrizes A e B
+  document.write(
+    "Elementos da diagonal principal de A: " + diagonalPrincipalA + "<br>"
+  );
+  document.write("Elementos acima da diagonal principal da Matriz A: ");
+  for (i = 0; i < L; i++) {
+    for (j = i + 1; j < C; j++) {
+      document.write(matrizA[i][j] + "&nbsp&nbsp&nbsp");
+    }
+  }
+  document.write("<br>");
+  document.write(
+    "Elementos da diagonal principal de B: " + diagonalPrincipalB + "<br>"
+  );
+  document.write("Elementos acima da diagonal principal da Matriz B: ");
+  for (i = 0; i < L; i++) {
+    for (j = i + 1; j < C; j++) {
+      document.write(matrizB[i][j] + "&nbsp&nbsp&nbsp");
+    }
+  }
+  document.write("<hr>");
+
+  // Valores abaixo da diagonal principal das matrizes A e B
+
+  document.write(
+    "Elementos da diagonal principal de A: " + diagonalPrincipalA + "<br>"
+  );
+  document.write("Elementos Abaixo da Diagonal Principal da Matriz A: ");
+  for (i = 0; i < L; i++) {
+    for (j = 0; j < i; j++) {
+      document.write(matrizA[i][j] + "&nbsp&nbsp&nbsp");
+    }
+  }
+
+  document.write("<br>");
+  document.write(
+    "Elementos da diagonal principal de B: " + diagonalPrincipalB + "<br>"
+  );
+  document.write("Elementos Abaixo da Diagonal Principal da Matriz B: ");
+  for (i = 0; i < L; i++) {
+    for (j = 0; j < i; j++) {
+      document.write(matrizB[i][j] + "&nbsp&nbsp&nbsp");
+    }
+  }
+
+  document.write("<hr>");
+  // Média das linhas da Matriz A
+
+  var mediasLinhasA = new Array(L);
+
+  for (i = 0; i < L; i++) {
+  matrizA[i]
+  mediasLinhasA[i] = 0; 
+  for (j = 0; j < C; j++) {
+    matrizA[i][j]
+
+    mediasLinhasA[i] += matrizA[i][j];
+  }
+
+  mediasLinhasA[i] /= C;
+}
+document.write("Média de Cada Linha da Matriz A: ");
+for (i = 0; i < L; i++) {
+  document.write(mediasLinhasA[i].toFixed(2) + "&nbsp&nbsp&nbsp");
+}
+</script>
